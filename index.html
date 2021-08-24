@@ -31,62 +31,71 @@
             position: relative;
         }
         .truncate-2-lines:before {
-        content: '...';
-        position: absolute;
-        right: 5px;
-        bottom: 1px;
+            content: '...';
+            position: absolute;
+            right: 5px;
+            bottom: 1px;
         }
         .free-cargo::before {
-        content: '.';
-        font-size: 2em;
-        position: absolute;
-        transform: rotate(45deg);
-        transform-origin: 150% 20%;
+            content: '.';
+            font-size: 2em;
+            position: absolute;
+            transform: rotate(45deg);
+            transform-origin: 150% 20%;
+        }
+        @media (min-width: 1024px) { 
+            .free-cargo::before {
+                display: none;
+            }
         }
     </style>
 
 </head>
 <body>
-    <div class="product-list-component flex flex-col w-full">
-        <!-- Title component -->
-        <div class="w-full pl-2 pt-4">
+    <div class="flex flex-col w-full p-4">
+        <!-- Title -->
+        <div class="w-full pl-2 pt-4 lg:p-6">
             <h2 class="font-bold text-xl text-gray-800">Sizin için seçtiklerimiz</h2>
         </div>
         <!-- Product -->
-        <div class="product-container md:flex w-full">
-            <!-- Start Prodcut Navigation Bar -->
-            <div class="product-navbar h-auto  w-full">
-                <ul class="product-navbar-list h-full max-h-20 w-full flex border-b-2 border-gray-200 overflow-x-scroll overflow-y-hidden whitespace-nowrap no-scrollbar">
-                    <li class="p-3 text-gray-700 h-full font-medium border-b-2 border-blue-400">
+        <div class="w-full lg:flex">
+            <!-- Start Navigation Bar -->
+            <div class="h-auto w-full lg:w-60">
+                <ul class="product-navbar-list h-full max-h-20 w-full flex border-b-2 border-gray-200 overflow-x-scroll lg:overflow-hidden overflow-y-hidden whitespace-nowrap no-scrollbar lg:flex-col lg:max-h-full lg:border-0">
+                    <li class="cursor-pointer relative text-sm p-3 text-gray-700 h-auto font-medium border-b-2 border-blue-400 align-center flex items-center lg:bg-green-100 lg:w-60 lg:bg-green-50 lg:text-blue-700 lg:border-b-0 lg:ml-4">
                         <span>Size Özel</span>
+                        <span class="h-full w-1 bg-blue-700 absolute rounded-r-sm -left-4"></span>
                     </li>
-                    <li class="p-3 text-gray-400 h-full font-medium">
+                    <li class="p-3 text-sm  text-gray-400 h-auto font-medium cursor-pointer lg:ml-4">
                         <span>Tamir, Tadilat Gereçleri</span>
                     </li>   
-                    <li class="p-3 text-gray-400 h-full font-medium">
+                    <li class="p-3 text-sm  text-gray-400 h-auto font-medium cursor-pointer lg:ml-4">
                         <span>Mobilya</span>
                     </li>
-                    <li class="p-3 text-gray-400 h-full font-medium">
+                    <li class="p-3 text-sm  text-gray-400 h-auto font-medium cursor-pointer lg:ml-4">
                         <span>Sağlık, Medikal</span>
                     </li>
-                    <li class="p-3 text-gray-400 h-full font-medium">
+                    <li class="p-3 text-sm  text-gray-400 h-auto font-medium cursor-pointer lg:ml-4">
                         <span>Dizüstü Bilgisayar</span>
                     </li>
-                    <li class="p-3 text-gray-400 h-full font-medium">
+                    <li class="p-3 text-sm  text-gray-400 h-auto font-medium cursor-pointer lg:ml-4">
                         <span>Isıtma Soğutma Sistemi</span>
                     </li>
                 </ul>
             </div>
-            <!-- End Product Navigation Bar -->
+            <!-- End Navigation Bar -->
             <!-- Start Product List -->
-            <div class="product-list py-3 px-1 overflow-hidden h-auto w-full">
-                <ul class="product-list-info py-3 flex w-full overflow-x-scroll overflow-y-hidden no-scrollbar">
-                    <li class="product p-2 min-w-40 border border-gray-100 ml-2 rounded-md shadow-md">
-                        <img class="w-full rounded-md" src="https://mcdn01.gittigidiyor.net/64425/tn50/644256605_tn50_0.jpg" alt="">
-                        <h3 class="pr-3 mb-10 w-40 text-sm font-semibold break-all text-overflow: ellipsis truncate-2-lines">Pro Cat Plus x ST3250 Li Metal Şanzımanlı Çift Akülü Şarjlı Vidalama Matkap 2 Yıl Garantili</h3>
-                        <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-md text-black">159,90 TL</div>
-                        <div class="free-cargo relative mb-2 pl-2 text-xs font-medium text-gray-700">Ücretsiz Kargo</div>
-                        <button class="btn-add p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-md">Sepete Ekle</button>
+            <div class="py-3 px-1 overflow-hidden h-auto w-full lg:py-0 lg:w-screen">
+                <ul class="py-3 flex w-full overflow-x-scroll overflow-y-hidden no-scrollbar lg:py-0 lg:mx-4">
+                    <li class="group p-2 min-w-40 border border-gray-100 ml-2 rounded-lg shadow-lg cursor-pointer">
+                        <img class="w-full rounded-lg" src="https://mcdn01.gittigidiyor.net/64425/tn50/644256605_tn50_0.jpg" alt="">
+                        <h3 class="px-3 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">Pro Cat Plus x ST3250 Li Metal Şanzımanlı Çift Akülü Şarjlı Vidalama Matkap 2 Yıl Garantili</h3>
+                        <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-lg text-black">159,90 TL</div>
+                        <div class="free-cargo relative mb-2 pl-2 text-xs font-medium text-gray-700 flex items-center">
+                            <svg class="hidden lg:block fill-current text-green-600 w-3 h-3 mr-1" x="0px" y="0px" viewBox="0 0 122.88 99.36"><g><path d="M78.29,23.33h18.44c5.52,0,4.23-0.66,7.33,3.93l15.53,22.97c3.25,4.81,3.3,3.77,3.3,9.54v18.99 c0,6.15-5.03,11.19-11.19,11.19h-2.28c0.2-0.99,0.3-2.02,0.3-3.07c0-8.77-7.11-15.89-15.89-15.89c-8.77,0-15.89,7.11-15.89,15.89 c0,1.05,0.1,2.07,0.3,3.07H58.14c0.19-0.99,0.3-2.02,0.3-3.07c0-8.77-7.11-15.89-15.89-15.89c-8.77,0-15.89,7.11-15.89,15.89 c0,1.05,0.1,2.07,0.3,3.07h-2.65c-5.66,0-10.29-4.63-10.29-10.29V63.05h64.27V23.33L78.29,23.33z M93.82,74.39 c6.89,0,12.48,5.59,12.48,12.49c0,6.89-5.59,12.48-12.48,12.48c-6.9,0-12.49-5.59-12.49-12.48C81.33,79.98,86.92,74.39,93.82,74.39 L93.82,74.39z M42.54,74.39c6.9,0,12.49,5.59,12.49,12.49c0,6.89-5.59,12.48-12.49,12.48c-6.89,0-12.48-5.59-12.48-12.48 C30.06,79.98,35.65,74.39,42.54,74.39L42.54,74.39z M42.54,83.18c2.04,0,3.7,1.65,3.7,3.7c0,2.04-1.65,3.69-3.7,3.69 c-2.04,0-3.69-1.66-3.69-3.69C38.85,84.83,40.51,83.18,42.54,83.18L42.54,83.18z M93.82,83.09c2.09,0,3.79,1.7,3.79,3.79 c0,2.09-1.7,3.79-3.79,3.79c-2.09,0-3.79-1.7-3.79-3.79C90.03,84.78,91.73,83.09,93.82,83.09L93.82,83.09z M89.01,32.35h3.55 l15.16,21.12v6.14c0,1.49-1.22,2.71-2.71,2.71h-16c-1.53,0-2.77-1.25-2.77-2.77V35.13C86.23,33.6,87.48,32.35,89.01,32.35 L89.01,32.35z M5.6,0h64.26c3.08,0,5.6,2.52,5.6,5.6v48.92c0,3.08-2.52,5.6-5.6,5.6H5.6c-3.08,0-5.6-2.52-5.6-5.6V5.6 C0,2.52,2.52,0,5.6,0L5.6,0z"/></g></svg>
+                            Ücretsiz Kargo
+                        </div>
+                        <button class="lg:opacity-0 group-hover:opacity-100 transition-all block p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-lg ">Sepete Ekle</button>
                     </li>
                 </ul>
             </div>
