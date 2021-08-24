@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .min-w-40 {
+            min-width: 180px;
+            width: 180px;
+        }
+        .truncate-2-lines {
+            max-height: 2.4em;
+            line-height: 1.2em;
+            display: block;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            overflow: hidden;
+            position: relative;
+        }
+        .truncate-2-lines:before {
+        content: '...';
+        position: absolute;
+        right: 5px;
+        bottom: 1px;
+        }
+        .free-cargo::before {
+        content: '.';
+        font-size: 2em;
+        position: absolute;
+        transform: rotate(45deg);
+        transform-origin: 150% 20%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="product-list-component flex flex-col w-full">
+        <!-- Title component -->
+        <div class="w-full pl-2 pt-4">
+            <h2 class="font-bold text-xl text-gray-800">Sizin için seçtiklerimiz</h2>
+        </div>
+        <!-- Product -->
+        <div class="product-container md:flex w-full">
+            <!-- Start Prodcut Navigation Bar -->
+            <div class="product-navbar h-auto  w-full">
+                <ul class="product-navbar-list h-full max-h-20 w-full flex border-b-2 border-gray-200 overflow-x-scroll overflow-y-hidden whitespace-nowrap no-scrollbar">
+                    <li class="p-3 text-gray-700 h-full font-medium border-b-2 border-blue-400">
+                        <span>Size Özel</span>
+                    </li>
+                    <li class="p-3 text-gray-400 h-full font-medium">
+                        <span>Tamir, Tadilat Gereçleri</span>
+                    </li>   
+                    <li class="p-3 text-gray-400 h-full font-medium">
+                        <span>Mobilya</span>
+                    </li>
+                    <li class="p-3 text-gray-400 h-full font-medium">
+                        <span>Sağlık, Medikal</span>
+                    </li>
+                    <li class="p-3 text-gray-400 h-full font-medium">
+                        <span>Dizüstü Bilgisayar</span>
+                    </li>
+                    <li class="p-3 text-gray-400 h-full font-medium">
+                        <span>Isıtma Soğutma Sistemi</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Product Navigation Bar -->
+            <!-- Start Product List -->
+            <div class="product-list py-3 px-1 overflow-hidden h-auto w-full">
+                <ul class="product-list-info py-3 flex w-full overflow-x-scroll overflow-y-hidden no-scrollbar">
+                    <li class="product p-2 min-w-40 border border-gray-100 ml-2 rounded-md shadow-md">
+                        <img class="w-full rounded-md" src="https://mcdn01.gittigidiyor.net/64425/tn50/644256605_tn50_0.jpg" alt="">
+                        <h3 class="pr-3 mb-10 w-40 text-sm font-semibold break-all text-overflow: ellipsis truncate-2-lines">Pro Cat Plus x ST3250 Li Metal Şanzımanlı Çift Akülü Şarjlı Vidalama Matkap 2 Yıl Garantili</h3>
+                        <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-md text-black">159,90 TL</div>
+                        <div class="free-cargo relative mb-2 pl-2 text-xs font-medium text-gray-700">Ücretsiz Kargo</div>
+                        <button class="btn-add p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-md">Sepete Ekle</button>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Product List -->
+        </div>
+    </div>
+</body>
+</html>
