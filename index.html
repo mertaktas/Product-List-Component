@@ -53,7 +53,8 @@
     </style>
 
 </head>
-<body>
+<body class="relative h-screen">
+    <!-- Main -->
     <div class="flex flex-col w-full p-4">
         <!-- Title -->
         <div class="w-full pl-2 pt-4 lg:p-6">
@@ -150,12 +151,12 @@
                         <button class="lg:opacity-0 group-hover:opacity-100 transition-all block p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-lg ">Sepete Ekle</button>
                     </li>
                 </ul>
-                <div class="swiper-button-prev absolute w-16 h-16 rounded-full bg-white top-20 -left-8 shadow-2xl border border-gray-200 flex items-center justify-end pr-2">
+                <div class="opacity-0 lg:opacity-100 swiper-button-prev absolute w-16 h-16 rounded-full bg-white top-20 -left-8 shadow-2xl border border-gray-200 flex items-center justify-end pr-2">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </div>
-                <div class="swiper-button-next absolute w-16 h-16 rounded-full bg-white top-20 -right-8 shadow-2xl border border-gray-200 flex items-center justify-start pl-2">
+                <div class="opacity-0 lg:opacity-100 swiper-button-next absolute w-16 h-16 rounded-full bg-white top-20 -right-8 shadow-2xl border border-gray-200 flex items-center justify-start pl-2">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -165,7 +166,26 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Add to cart -->
+    <div class="px-7 py-5 rounded-lg absolute bottom-3 right-5 w-96 bg-gray-900 flex items-center justify-between">
+        <div class="flex items-center justify-center">
+            <div class="w-7 h-7 mr-3 rounded-full bg-green-500 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <div class="leading-5">
+                <p class="text-md text-white">Ürün sepete eklendi.</p>
+                <p class="text-sm text-gray-400">Sepete Git</p>
+            </div>
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+
     <script type="module">
         import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
         
