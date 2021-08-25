@@ -13,19 +13,12 @@
     width: 180px;
 }
 .truncate-2-lines {
-    max-height: 2.4em;
-    line-height: 1.2em;
-    display: block;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    overflow: hidden;
-    position: relative;
-}
-.truncate-2-lines:before {
-    content: '...';
-    position: absolute;
-    right: 5px;
-    bottom: 1px;
+    text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 .free-cargo::before {
     content: '.';
