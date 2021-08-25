@@ -54,7 +54,7 @@ function getProducts(datas,html) {
             </li>
         `
         }  
-     }, 350);
+     }, 500);
     
 }
 
