@@ -44,7 +44,7 @@ function getProducts(datas,html) {
             html.innerHTML += `
             <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer">
                 <img class="w-full rounded-lg lazy" src="${data.image}" alt="${data.name}">
-                <h3 class="px-3 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
+                <h3 class="px-3 h-60 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
                 <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-lg text-black">${data.priceText}</div>
                 ${data.params.shippingFee == 'FREE' ? 
                     `<div class="free-cargo relative mb-2 pl-2 text-xs font-medium text-gray-700 flex items-center">
