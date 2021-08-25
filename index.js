@@ -56,6 +56,9 @@ function getProducts(datas,html) {
 
 function addToCart(){
     addToCartEl.classList.remove('invisible')
+    setTimeout(()=>{
+        addToCartEl.classList.add('invisible')
+    }, 2000);
 }
 function closeToCard() {
     addToCartEl.classList.add('invisible')
