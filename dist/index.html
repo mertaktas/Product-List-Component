@@ -5,52 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-    <style>
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        .min-w-40 {
-            min-width: 180px;
-            width: 180px;
-        }
-        .truncate-2-lines {
-            max-height: 2.4em;
-            line-height: 1.2em;
-            display: block;
-            text-overflow: ellipsis;
-            word-wrap: break-word;
-            overflow: hidden;
-            position: relative;
-        }
-        .truncate-2-lines:before {
-            content: '...';
-            position: absolute;
-            right: 5px;
-            bottom: 1px;
-        }
-        .free-cargo::before {
-            content: '.';
-            font-size: 2em;
-            position: absolute;
-            transform: rotate(45deg);
-            transform-origin: 150% 20%;
-        }
-        @media (min-width: 1024px) { 
-            .free-cargo::before {
-                display: none;
-            }
-        }
-    </style>
+    <!-- Tailwindcss framework -->
+    <link rel="stylesheet" href="/dist/css/tailwind.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/dist/css/style.css">
 
 </head>
 <body class="relative h-screen lg:py-2 lg:px-4 lg:bg-gray-200">
@@ -186,71 +145,13 @@
             </svg>
         </button>
     </div>
-
-    <script type="module">
-        import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
-        
-        var swiper = new Swiper(".mySwipper", {
-        slidesPerView:  "auto",
-        centeredSlides: false,
-        spaceBetween: 0,
-        autoplay: {
-            delay: 3000,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          type: "fraction",
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
-    <script>
-        (function () {
-          function logElementEvent(eventName, element) {
-            console.log(Date.now(), eventName, element.getAttribute("data-src"));
-          }
-  
-          var callback_enter = function (element) {
-            logElementEvent("🔑 ENTERED", element);
-          };
-          var callback_exit = function (element) {
-            logElementEvent("🚪 EXITED", element);
-          };
-          var callback_loading = function (element) {
-            logElementEvent("⌚ LOADING", element);
-          };
-          var callback_loaded = function (element) {
-            logElementEvent("👍 LOADED", element);
-          };
-          var callback_error = function (element) {
-            logElementEvent("💀 ERROR", element);
-            element.src =
-              "https://via.placeholder.com/440x560/?text=Error+Placeholder";
-          };
-          var callback_finish = function () {
-            logElementEvent("✔️ FINISHED", document.documentElement);
-          };
-          var callback_cancel = function (element) {
-            logElementEvent("🔥 CANCEL", element);
-          };
-  
-          var ll = new LazyLoad({
-            threshold: 0,
-            // Assign the callbacks defined above
-            callback_enter: callback_enter,
-            callback_exit: callback_exit,
-            callback_cancel: callback_cancel,
-            callback_loading: callback_loading,
-            callback_loaded: callback_loaded,
-            callback_error: callback_error,
-            callback_finish: callback_finish
-          });
-        })();
-      </script>
-      <script src="index.js"></script>
+    <!-- Swiper.js Options -->
+    <script src="/dist/js/swiper.js" type="module"></script>
+    <!-- Lazyload.js Library -->
+    <script src="/dist/js/lazyload.min.js"></script>
+    <!-- Lazyload Options -->
+    <script src="/dist/js/lazyloading.js"></script>
+    <!-- Custom js -->
+    <script src="/dist/js/index.js"></script>
 </body>
 </html>

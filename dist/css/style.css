@@ -1,0 +1,41 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.min-w-40 {
+    min-width: 180px;
+    width: 180px;
+}
+.truncate-2-lines {
+    max-height: 2.4em;
+    line-height: 1.2em;
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    position: relative;
+}
+.truncate-2-lines:before {
+    content: '...';
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+}
+.free-cargo::before {
+    content: '.';
+    font-size: 2em;
+    position: absolute;
+    transform: rotate(45deg);
+    transform-origin: 150% 20%;
+}
+@media (min-width: 1024px) { 
+    .free-cargo::before {
+        display: none;
+    }
+}
