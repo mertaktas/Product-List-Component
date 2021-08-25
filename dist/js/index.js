@@ -3,31 +3,15 @@ const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
 const categoryEl = document.querySelectorAll(".category")
 
-{/* <li class="border border-gray-300 shadow rounded-md p-2 max-w-sm w-full mx-auto min-w-40 mr-2">
-                        <div class="animate-pulse flex flex-col">
-                          <div class="rounded-lg bg-gray-400 h-36 w-full"></div>
-                          <div class="flex-1 space-y-4 py-1">
-                            <div class="space-y-1 mt-4">
-                                <div class="h-3 bg-gray-400 rounded-lg w-full"></div>
-                                <div class="h-3 bg-gray-400 rounded-lg w-full"></div>
-                            </div>
-                            <div class="space-y-2">
-                              <div class="h-10 mt-6 bg-gray-400 rounded-lg w-full flex items-center"></div>
-                              <div class="h-4 bg-gray-400 rounded-lg w-3/5"></div>
-                              <div class="h-10 bg-gray-400 rounded-lg w-full"></div>
-                            </div>
-                          </div>
-                        </div>
-                    </li> */}
 
 window.onload = () => {
-loadingCart();
 getData();
 };
 
 async function getData () {
     const resp = await fetch("http://localhost:3000/responses")
     const data = await resp.json()
+    loadingCart();
     getCategories(data.params.userCategories,NavbarListEl)
     getProducts(data.params.recommendedProducts["Size Özel"],ProductListEl)
     NavbarListEl.addEventListener('click',(e)=>{
@@ -59,7 +43,7 @@ function getProducts(datas,html) {
         for (let data of datas) {
             html.innerHTML += `
             <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer">
-                <img class="w-full rounded-lg lazy" src="${data.image}" alt="">
+                <img class="w-full rounded-lg lazy" src="${data.image}" alt="${data.name}">
                 <h3 class="px-3 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
                 <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-lg text-black">${data.priceText}</div>
                 <div class="free-cargo relative mb-2 pl-2 text-xs font-medium text-gray-700 flex items-center">
