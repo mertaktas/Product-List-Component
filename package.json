@@ -1,0 +1,22 @@
+{
+  "name": "vanillajs-product-list",
+  "version": "1.0.0",
+  "description": "vanilla js product list",
+  "main": "index.js",
+  "scripts": {
+    "json-server": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mertaktas/Product-List-Component.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mertaktas/Product-List-Component/issues"
+  },
+  "homepage": "https://github.com/mertaktas/Product-List-Component#readme",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}
