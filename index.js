@@ -10,19 +10,22 @@ async function getData () {
     getCategories(data.params.userCategories,NavbarListEl)
     getProducts(data.params.recommendedProducts["Size Özel"],ProductListEl)
     NavbarListEl.addEventListener('click',(e)=>{
-        console.log(e.target.innerText);
-        getProducts(data.params.recommendedProducts[e.target.innerText],ProductListEl)
+        console.log(e.target.dataset.value);
+        getProducts(data.params.recommendedProducts[e.target.dataset.value],ProductListEl)
     })
 }   
 function getCategories(datas,html){
     NavbarListEl.innerHTML = ""
     for (let data of datas) {
+        let splitData = data.split('> ')
+        console.log(splitData.slice(-1)[0] );
         let li = document.createElement("li");
         
         li.classList.add('p-3', 'text-sm', 'text-gray-400', 'h-auto', 'font-medium', 'cursor-pointer', 'lg:ml-4','lg:truncate','break-all')
-        li.innerHTML += `<span>${data}</span>`
+        li.innerHTML += `<span data-value="${data}">${splitData.slice(-1)[0]}</span>`
         html.appendChild(li)
     }
+    console.log(datas);
     html.firstChild.classList.add('text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
     let span = document.createElement("span");
     span.classList.add('h-full', 'w-1', 'bg-blue-700', 'absolute', 'rounded-r-sm', '-left-4')
@@ -47,6 +50,7 @@ function getProducts(datas,html) {
                     </li>
     `
     }
+    console.log(datas);
     console.log(datas["Size Özel"]);
 }
 
