@@ -9,9 +9,11 @@ async function getData () {
     const data = await resp.json()
     getCategories(data.params.userCategories,NavbarListEl)
     getProducts(data.params.recommendedProducts["Size Özel"],ProductListEl)
+    console.log(NavbarListEl);
     NavbarListEl.addEventListener('click',(e)=>{
+        console.log(e.target.children[0].dataset.value);
         console.log(e.target.dataset.value);
-        getProducts(data.params.recommendedProducts[e.target.dataset.value],ProductListEl)
+        getProducts(data.params.recommendedProducts[e.target.dataset.value || e.target.children[0].dataset.value],ProductListEl)
     })
 }   
 function getCategories(datas,html){
