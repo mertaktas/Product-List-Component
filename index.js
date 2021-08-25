@@ -8,6 +8,10 @@ async function getData () {
     const data = await resp.json()
     getCategories(data.params.userCategories,NavbarListEl)
     getProducts(data.params.recommendedProducts["Size Özel"],ProductListEl)
+    NavbarListEl.addEventListener('click',(e)=>{
+        console.log(e.target.innerText);
+        getProducts(data.params.recommendedProducts[e.target.innerText],ProductListEl)
+    })
 }   
 function getCategories(datas,html){
     NavbarListEl.innerHTML = ""
