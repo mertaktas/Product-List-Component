@@ -18,10 +18,10 @@ async function getData () {
         e.preventDefault();
         loadingCart();
         for (let i = 0; i <= 5; i++) {
-            NavbarListEl.children[i].classList.remove('text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
+            NavbarListEl.children[i].classList.remove('navbar-list', 'text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
         }
         console.log(NavbarListEl.children[0]);
-        e.target.classList.add('text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
+        e.target.classList.add('navbar-list', 'text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
         getProducts(data.params.recommendedProducts[e.target.children[0].dataset.value],ProductListEl)
     })
 }   
@@ -30,14 +30,11 @@ function getCategories(datas,html){
     for (let data of datas) {
         let splitData = data.split('> ')
         let li = document.createElement("li");
-        li.classList.add('category','p-3', 'text-sm', 'text-gray-400', 'h-auto', 'font-medium', 'cursor-pointer', 'lg:ml-4','lg:truncate','break-all')
+        li.classList.add('p-3', 'lg:ml-4', 'text-sm', 'relative', 'text-gray-400', 'h-auto', 'font-medium', 'flex', 'items-center', 'cursor-pointer', 'transition-all')
         li.innerHTML += `<span class="pointer-events-none" data-value="${data}">${splitData.slice(-1)[0]}</span>`
         html.appendChild(li)
     }
-    html.firstChild.classList.add('text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
-    let span = document.createElement("span");
-    span.classList.add('h-full', 'w-1', 'bg-blue-700', 'absolute', 'rounded-r-sm', '-left-4')
-    html.firstChild.appendChild(span)
+    html.firstChild.classList.add('navbar-list','text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
 }
 
 
