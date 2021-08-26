@@ -12,6 +12,9 @@
     min-width: 180px;
     width: 180px;
 }
+.min-h-page {
+    min-height: 550px;
+}
 .truncate-2-lines {
     text-overflow:ellipsis;
   overflow:hidden;
