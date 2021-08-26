@@ -30,7 +30,7 @@ function getCategories(datas,html){
     for (let data of datas) {
         let splitData = data.split('> ')
         let li = document.createElement("li");
-        li.classList.add('p-3', 'lg:ml-4', 'text-sm', 'relative', 'text-gray-400', 'h-auto', 'font-medium', 'flex', 'items-center', 'cursor-pointer', 'transition-all')
+        li.classList.add('p-3', 'lg:ml-4', 'text-sm', 'relative', 'text-gray-400', 'h-auto', 'font-medium', 'flex', 'items-center', 'cursor-pointer', 'transition-all', 'rounded-md')
         li.innerHTML += `<span class="pointer-events-none" data-value="${data}">${splitData.slice(-1)[0]}</span>`
         html.appendChild(li)
     }
