@@ -32,3 +32,16 @@
         display: none;
     }
 }
+@media (min-width: 1024px) { 
+    .navbar-list::before{
+        content: '';
+        width: 5px;
+        height: 100%;
+        background: rgba(29,78,216,1);;
+        position: absolute;
+        left: -16px;
+        top: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
