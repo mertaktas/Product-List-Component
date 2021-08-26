@@ -78,18 +78,18 @@ function loadingCart(){
     ProductListEl.innerHTML = ''
     for (let i = 0; i < 10; i++) {
         ProductListEl.innerHTML += `
-        <li class="border border-gray-300 shadow rounded-md p-2 max-w-sm w-full mx-auto min-w-40 mr-2">
+        <li class="border border-green-50 shadow rounded-md p-2 max-w-sm w-full mx-auto min-w-40 mr-2">
             <div class="animate-pulse flex flex-col">
-                <div class="rounded-lg bg-gray-400 h-40 w-full"></div>
+                <div class="rounded-lg bg-green-100 h-40 w-full"></div>
                 <div class="flex-1 space-y-4 py-1">
                     <div class="space-y-1 mt-4 px-2">
-                        <div class="h-3 bg-gray-400 rounded-lg w-full"></div>
-                        <div class="h-3 bg-gray-400 rounded-lg w-full"></div>
+                        <div class="h-3 bg-green-100 rounded-lg w-full"></div>
+                        <div class="h-3 bg-green-100 rounded-lg w-full"></div>
                     </div>
                     <div class="space-y-3">
-                    <div class="h-10 mt-6 bg-gray-400 rounded-lg w-full flex items-center"></div>
-                    <div class="h-3 bg-gray-400 rounded-lg w-3/5"></div>
-                    <div class="h-10 bg-gray-400 rounded-lg w-full"></div>
+                    <div class="h-10 mt-6 bg-green-100 rounded-lg w-full flex items-center"></div>
+                    <div class="h-3 bg-green-100 rounded-lg w-3/5"></div>
+                    <div class="h-10 bg-green-100 rounded-lg w-full"></div>
                     </div>
                 </div>
             </div>
