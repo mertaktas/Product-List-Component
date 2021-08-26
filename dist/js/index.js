@@ -17,6 +17,11 @@ async function getData () {
     NavbarListEl.addEventListener('click',(e)=>{
         e.preventDefault();
         loadingCart();
+        for (let i = 0; i <= 5; i++) {
+            NavbarListEl.children[i].classList.remove('text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
+        }
+        console.log(NavbarListEl.children[0]);
+        e.target.classList.add('text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
         getProducts(data.params.recommendedProducts[e.target.children[0].dataset.value],ProductListEl)
     })
 }   
