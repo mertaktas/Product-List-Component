@@ -2,21 +2,24 @@ const NavbarListEl = document.querySelector(".product-navbar-list")
 const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
 
-
 // Start
 window.onload = () => {
 getData();
 };
 
-// Get Data for Json Server
+// Get Data for Firebase
 async function getData () {
-    const data = await (await fetch("http://localhost:3000/responses")).json() // Fetch Data
-    const defaultProduct = data.params.recommendedProducts["Size Özel"] // First Product
-    const defaulCategories = data.params.userCategories // Categories Data
-    loadingCart(); // Loading
-    getCategories(defaulCategories) // Call Categories
-    getProducts(defaultProduct) // Call Products
-    NavbarClickEvent('click',data); // Click Event
+    db.collection('products').get().then((doc)=>{
+        doc.docs.forEach(item=>{
+            const data = item.data()
+            const defaultProduct = data.params.recommendedProducts["Size Özel"] // First Product
+            const defaulCategories = data.params.userCategories // Categories Data
+            loadingCart(); // Loading
+            getCategories(defaulCategories) // Call Categories
+            getProducts(defaultProduct) // Call Products
+            NavbarClickEvent('click',data); // Click Event
+        })
+    })
 }
 
 // Get Categories Function
