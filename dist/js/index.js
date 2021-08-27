@@ -1,49 +1,42 @@
 const NavbarListEl = document.querySelector(".product-navbar-list")
 const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
-const categoryEl = document.querySelectorAll(".category")
 
-
+// Start
 window.onload = () => {
 getData();
 };
 
+// Get Data for Json Server
 async function getData () {
-    const resp = await fetch("http://localhost:3000/responses")
-    const data = await resp.json()
-    loadingCart();
-    getCategories(data.params.userCategories,NavbarListEl)
-    getProducts(data.params.recommendedProducts["Size Özel"],ProductListEl)
-    NavbarListEl.addEventListener('click',(e)=>{
-        e.preventDefault();
-        loadingCart();
-        for (let i = 0; i <= 5; i++) {
-            NavbarListEl.children[i].classList.remove('navbar-list', 'text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
-        }
-        console.log(NavbarListEl.children[0]);
-        e.target.classList.add('navbar-list', 'text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
-        getProducts(data.params.recommendedProducts[e.target.children[0].dataset.value],ProductListEl)
-    })
-}   
-function getCategories(datas,html){
+    const data = await (await fetch("http://localhost:3000/responses")).json() // Fetch Data
+    const defaultProduct = data.params.recommendedProducts["Size Özel"] // First Product
+    const defaulCategories = data.params.userCategories // Categories Data
+    loadingCart(); // Loading
+    getCategories(defaulCategories) // Call Categories
+    getProducts(defaultProduct) // Call Products
+    NavbarClickEvent('click',data); // Click Event
+}
+
+// Get Categories Function
+function getCategories(datas){
     NavbarListEl.innerHTML = ""
-    for (let data of datas) {
+    datas.map(data=>{
         let splitData = data.split('> ')
         let li = document.createElement("li");
         li.classList.add('p-3', 'lg:ml-4', 'text-sm', 'relative', 'text-gray-400', 'h-auto', 'font-medium', 'flex', 'items-center', 'cursor-pointer', 'transition-all', 'lg:rounded-md')
         li.innerHTML += `<span class="pointer-events-none" data-value="${data}">${splitData.slice(-1)[0]}</span>`
-        html.appendChild(li)
-    }
-    html.firstChild.classList.add('navbar-list','text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
+        NavbarListEl.appendChild(li)
+    })
+    NavbarListEl.firstChild.classList.add('navbar-list','text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
 }
 
-
-
-function getProducts(datas,html) {
+// Get Products Function
+function getProducts(datas) {
     setTimeout(function(){ 
-        html.innerHTML = ""
-        for (let data of datas) {
-            html.innerHTML += `
+        ProductListEl.innerHTML = ""
+        datas.map(data=>{
+            ProductListEl.innerHTML += `
             <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer">
                 <img class="w-full rounded-lg lazy" src="${data.image}" alt="${data.name}">
                 <h3 class="px-3 mt-4 h-8 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
@@ -59,21 +52,38 @@ function getProducts(datas,html) {
                 <button onclick="addToCart();" class="lg:opacity-0 group-hover:opacity-100 transition-all block p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-lg ">Sepete Ekle</button>
             </li>
         `
-        }  
-     }, 500);
+        }) 
+     }, 200);
     
 }
 
+// Navbar Click Event Function
+function NavbarClickEvent(event,data) {
+    NavbarListEl.addEventListener(event,(e)=>{
+        e.preventDefault();
+        loadingCart();
+        for (let i = 0; i <= NavbarListEl.childElementCount-1; i++) {
+            NavbarListEl.children[i].classList.remove('navbar-list', 'text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
+        }
+        e.target.classList.add('navbar-list', 'text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
+        getProducts(data.params.recommendedProducts[e.target.children[0].dataset.value])
+    })
+}
+
+// Add To Cart Function
 function addToCart(){
     addToCartEl.classList.remove('invisible')
     setTimeout(()=>{
         addToCartEl.classList.add('invisible')
     }, 2000);
 }
+
+// Close To Cart Function
 function closeToCard() {
     addToCartEl.classList.add('invisible')
 }
 
+// Loading Cart Function
 function loadingCart(){
     ProductListEl.innerHTML = ''
     for (let i = 0; i < 10; i++) {
