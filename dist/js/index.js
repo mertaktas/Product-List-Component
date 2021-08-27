@@ -2,6 +2,7 @@ const NavbarListEl = document.querySelector(".product-navbar-list")
 const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
 
+
 // Start
 window.onload = () => {
 getData();
@@ -37,7 +38,7 @@ function getCategories(datas){
 // Product string
 const strProduct = function (data) {
     str = `
-    <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer">
+    <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer flex flex-col">
         <img class="w-full rounded-lg lazy" src="${data.image}" alt="${data.name}">
         <h3 class="px-3 mt-4 h-8 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
         <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-lg text-black">${data.priceText}</div>
@@ -49,7 +50,7 @@ const strProduct = function (data) {
             `
             : ''
         }
-        <button onclick="addToCart();" class="lg:opacity-0 group-hover:opacity-100 transition-all block p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-lg ">Sepete Ekle</button>
+        <button onclick="addToCart();" class="text-center lg:opacity-0 group-hover:opacity-100 transition-all block p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-lg ">Sepete Ekle</button>
     </li>
 `
 return str
