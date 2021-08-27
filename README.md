@@ -17,6 +17,11 @@ A simple vanilla js application that dynamically retrieves the product list.
 - Slide feature of product lists
 - Add to cart feature
 
+## Demo
+
+(https://product-list-component.vercel.app)
+
+
 ## Installation
 
 Clone the project. (https://github.com/mertaktas/Product-List-Component.git)
@@ -34,18 +39,6 @@ cd Product-List-Component
 code .
 ```
 
-## Project setup
-
-Installation of the project
-
-```
-npm install
-```
-
-### Run The Server
-```
-npm run json-server
-```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
