@@ -39,7 +39,7 @@ function getCategories(datas){
 const strProduct = function (data) {
     str = `
     <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer flex flex-col">
-        <img class="w-full h-40 rounded-lg lazy" data-src="${data.image}">
+        <img class="w-full h-40 rounded-lg lazy" src="https://via.placeholder.com/150" alt=${data.name} data-src="${data.image}">
         <h3 class="px-3 mt-4 h-8 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
         <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-lg text-black">${data.priceText}</div>
         ${data.params.shippingFee == 'FREE' ? 
