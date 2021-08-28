@@ -19,7 +19,7 @@ A simple vanilla js application that dynamically retrieves the product list.
 
 ## Demo
 
-https://product-list-component.vercel.app
+https://product-list-component.netlify.app
 
 
 ## Installation
