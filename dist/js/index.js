@@ -1,7 +1,33 @@
 const NavbarListEl = document.querySelector(".product-navbar-list")
 const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
-
+var swiper = new Swiper(".mySwipper", {
+    slidesPerView:  "auto",
+    centeredSlides: false,
+    spaceBetween: 0,
+    autoplay: {
+        delay: 3000,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+});
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCYALogcaI7jK8I5zgt19LjxW6A5vYIM24",
+    authDomain: "product-list-component.firebaseapp.com",
+    projectId: "product-list-component",
+    storageBucket: "product-list-component.appspot.com",
+    messagingSenderId: "1056245802274",
+    appId: "1:1056245802274:web:836d5f1cbd72c0f389b17b"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 // Start
 getData()
 // Get Data for Firebase
@@ -18,7 +44,6 @@ async function getData () {
         })
     })
 }
-
 // Get Categories Function
 function getCategories(datas){
     NavbarListEl.innerHTML = ""
@@ -34,7 +59,6 @@ function getCategories(datas){
     })
     NavbarListEl.firstChild.children[0].classList.add('navbar-list','text-gray-700', 'border-b-2', 'border-blue-400', 'lg:bg-green-100', 'lg:bg-green-50', 'lg:text-blue-700', 'lg:border-b-0')
 }
-
 // Product string
 const strProduct = function (data) {
     str = `
@@ -53,9 +77,8 @@ const strProduct = function (data) {
         <button onclick="addToCart();" class="text-center lg:opacity-0 group-hover:opacity-100 transition-all block p-2 font-light tracking-wide text-center text-white w-full bg-blue-600 rounded-lg ">Sepete Ekle</button>
     </li>
 `
-return str
+    return str
 }
-
 // Get Products Function
 function getProducts(datas) {
     setTimeout(()=>{
@@ -80,10 +103,7 @@ function getProducts(datas) {
         imgObserver.observe(img);
         });
     }, 300);
-    
-    
 }
-
 // Navbar Click Event Function
 function NavbarClickEvent(event,data) {
     NavbarListEl.addEventListener(event,(e)=>{
@@ -96,7 +116,6 @@ function NavbarClickEvent(event,data) {
         getProducts(data.params.recommendedProducts[e.target.children[0].dataset.value])
     })
 }
-
 // Add To Cart Function
 function addToCart(){
     addToCartEl.classList.remove('invisible')
@@ -104,12 +123,10 @@ function addToCart(){
         addToCartEl.classList.add('invisible')
     }, 2000);
 }
-
 // Close To Cart Function
 function closeToCard() {
     addToCartEl.classList.add('invisible')
 }
-
 // Loading Cart Function
 function loadingCart(){
     ProductListEl.innerHTML = ''
