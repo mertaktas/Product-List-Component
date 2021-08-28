@@ -1,6 +1,7 @@
 const NavbarListEl = document.querySelector(".product-navbar-list")
 const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
+
 var swiper = new Swiper(".mySwipper", {
     slidesPerView:  "auto",
     centeredSlides: false,
@@ -15,6 +16,7 @@ var swiper = new Swiper(".mySwipper", {
       prevEl: ".swiper-button-prev",
     },
 });
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCYALogcaI7jK8I5zgt19LjxW6A5vYIM24",
