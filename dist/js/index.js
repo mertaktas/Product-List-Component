@@ -6,9 +6,6 @@ var swiper = new Swiper(".mySwipper", {
     centeredSlides: false,
     spaceBetween: 0,
     allowTouchMove: true,
-    autoplay: {
-        delay: 3000,
-    },
     pagination: {
       el: ".swiper-pagination",
       type: "fraction",
