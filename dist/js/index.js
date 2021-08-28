@@ -58,6 +58,8 @@ return str
 
 // Get Products Function
 function getProducts(datas) {
+    setTimeout(()=>{
+    
         ProductListEl.innerHTML = ""
         datas.map(data=>{
             ProductListEl.innerHTML += strProduct(data)
@@ -101,6 +103,7 @@ function getProducts(datas) {
           callback_error: callback_error,
           callback_finish: callback_finish
         });
+    }, 300);
     
     
 }
