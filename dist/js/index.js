@@ -3,10 +3,7 @@ const ProductListEl = document.querySelector(".product-list")
 const addToCartEl = document.querySelector(".add-to-cart")
 
 // Start
-window.onload = () => {
-getData();
-};
-
+getData()
 // Get Data for Firebase
 async function getData () {
     db.collection('products').get().then((doc)=>{
@@ -42,7 +39,7 @@ function getCategories(datas){
 const strProduct = function (data) {
     str = `
     <li class="swiper-slide group p-2 mr-2 min-w-40 border border-gray-100 rounded-lg shadow-lg cursor-pointer flex flex-col">
-        <img class="w-full rounded-lg lazy" src="${data.image}" alt="${data.name}">
+        <img class="w-full rounded-lg lazy" data-src="${data.image}" alt="${data.name}">
         <h3 class="px-3 mt-4 h-8 mb-6 w-40 text-xs font-semibold break-all text-overflow: ellipsis truncate-2-lines">${data.name}</h3>
         <div class="price p-2 mb-2 text-lg text-gray-800 font-bold bg-gray-100 rounded-lg text-black">${data.priceText}</div>
         ${data.params.shippingFee == 'FREE' ? 
@@ -61,12 +58,50 @@ return str
 
 // Get Products Function
 function getProducts(datas) {
-    setTimeout(function(){ 
         ProductListEl.innerHTML = ""
         datas.map(data=>{
             ProductListEl.innerHTML += strProduct(data)
         }) 
-     }, 200);
+        function logElementEvent(eventName, element) {
+          console.log(Date.now(), eventName, element.getAttribute("data-src"));
+        }
+    
+        var callback_enter = function (element) {
+          logElementEvent("🔑 ENTERED", element);
+        };
+        var callback_exit = function (element) {
+          logElementEvent("🚪 EXITED", element);
+        };
+        var callback_loading = function (element) {
+          logElementEvent("⌚ LOADING", element);
+        };
+        var callback_loaded = function (element) {
+          logElementEvent("👍 LOADED", element);
+        };
+        var callback_error = function (element) {
+          logElementEvent("💀 ERROR", element);
+          element.src =
+            "https://via.placeholder.com/440x560/?text=Error+Placeholder";
+        };
+        var callback_finish = function () {
+          logElementEvent("✔️ FINISHED", document.documentElement);
+        };
+        var callback_cancel = function (element) {
+          logElementEvent("🔥 CANCEL", element);
+        };
+        
+        var ll = new LazyLoad({
+          rootMargins: "0px",
+          // Assign the callbacks defined above
+          callback_enter: callback_enter,
+          callback_exit: callback_exit,
+          callback_cancel: callback_cancel,
+          callback_loading: callback_loading,
+          callback_loaded: callback_loaded,
+          callback_error: callback_error,
+          callback_finish: callback_finish
+        });
+    
     
 }
 
