@@ -14,28 +14,7 @@ var swiper = new Swiper(".mySwipper", {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-
-		480: {
-            allowSlidePrev: false,
-			allowSlideNext: false,
-			noSwiping: false,
-		},
-
-		992: {
-			noSwiping: true,
-			allowSlidePrev: true,
-			allowSlideNext: true
-		},
-
-		1024: {
-			noSwiping: true,
-			allowSlidePrev: true,
-			allowSlideNext: true
-		}
-
-	}
+    }
 });
 
 // Your web app's Firebase configuration
